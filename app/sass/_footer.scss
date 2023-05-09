@@ -1,0 +1,95 @@
+.footer{
+    background-color: $Dark-Blue;
+    color: $White;
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+    text-align: center;
+
+    & .container{    
+        @include breackpoint-up('large'){
+            display: grid;
+            grid-template-columns: repeat(3,1fr) 2fr;
+            grid-template-rows: repeat(2,1fr);
+            grid-template-areas: 
+            'logo links1 links2 cta'
+            'social links1 links2 cta'
+            ;
+        }
+    }
+
+    a{
+        color: $White;
+    }
+
+    &_logo{
+        display: inline-block;
+        margin-bottom: 1.875rem;
+        @include breackpoint-up('large'){
+            grid-area: logo;
+            text-align: left;
+        }
+    }
+
+    &_social{
+        margin-bottom: 1.875rem;
+        @include breackpoint-up('large'){
+            grid-area: social;
+            text-align: left;
+        }
+        svg path{
+            transition: fill .5s ease-in-out;
+        }
+        a:hover svg path{
+            fill: $Lime-Green;
+        }
+
+        a:not(:last-child){
+            margin-right: 1rem;
+        }
+    }
+
+    &_links{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        font-size: 1rem;
+        a{
+            transition: all .5s ease-in-out;
+            &:hover{
+                color: $Lime-Green ;
+            }
+        }
+     
+        &.col1{
+            margin-bottom: 1rem;
+            @include breackpoint-up('large'){
+                grid-area: links1;
+                text-align: left;
+                margin-left: 3rem;
+            }
+        }
+        &.col2{
+            margin-bottom: 1.875rem;
+            @include breackpoint-up('large'){
+                grid-area: links2;
+                text-align: left;
+                margin-left: 3rem;
+            }
+        }
+    }
+
+    &_cta{
+        @include breackpoint-up('large'){
+            grid-area: cta;
+            text-align: right;
+        }
+        a.header_button{
+            
+        }
+
+        .footer_copy{
+            margin-top: 2rem;
+            color: $Grayish-Blue;
+            font-size: 0.9rem;
+        }
+    }
+}

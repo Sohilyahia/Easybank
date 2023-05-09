@@ -1,0 +1,26 @@
+
+// from this point & bigger => min-width( 640px, 1024px, 1400px )
+$breackpoint-up: (
+    'mediem' : '40em'  , // 640px  / 16 = 40em    => from 640px to up
+    'large'  : '64em'  , // 1024px / 16 = 64em    => from 1024px to up  
+    'xlarge' : '87.5em', // 1400px / 16 = 87.5em  => from 1400px to up 
+);
+
+// from this point & Lower => max-width( 639px, 1023px, 1399px )
+$breackpoint-down: (
+    'small' :  '39.9375em'  , // 639px  / 16 = 39.9375em    => from 639px to down
+    'mediem' : '63.9375em'  , // 1023px / 16 = 63.9375em    => from 1023px to down
+    'large'  : '87.4375em'  , // 1399px / 16 = 87.4375em    => from 1024px to down
+);
+
+@mixin breackpoint-up($size){
+    @media (min-width: map-get($breackpoint-up, $size)){
+        @content
+    }
+};
+
+@mixin breackpoint-down($size){
+    @media (max-width: map-get($breackpoint-down, $size)){
+        @content
+    }
+}

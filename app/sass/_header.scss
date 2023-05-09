@@ -1,0 +1,163 @@
+.header{
+    position: relative;
+    background-color: $White;
+    top:0;
+    left: 0;
+    width: 100%; 
+    height: 81px;
+
+    &.open{
+        .header_hamburger{
+            > span:first-child{
+                transform: rotate(45deg);
+            }
+            > span:nth-child(2){
+                opacity: 0;
+            }
+            > span:last-child{
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .overlay{
+        visibility: hidden;
+        opacity: 0;
+        position: fixed;
+        top: 81px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 11;
+        background: linear-gradient(hsl(233deg 28.15% 19.84%), transparent);
+        &.fade-in{
+            animation: fade-in .3s ease-in-out forwards ;
+        }
+        &.fade-out{
+            animation: fade-out .3s ease-in-out forwards ;
+        }
+        @include breackpoint-up('large'){
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    nav{
+        padding-inline: 24px;
+        width: 100%;
+    }
+
+    &_logo{
+        img{
+            width: 8.8125rem;
+            height: 1.375rem;
+        }
+    }
+
+    .mobil_menu{
+        @include breackpoint-down('large'){
+            display: flex;
+            flex-direction: column;
+            padding: 1.625rem;
+            position: absolute;
+            width: 90%;
+            margin: 0 auto;
+            z-index: 111;
+            top: -320%;
+            left: 5%;
+            background-color: $White;
+            text-align: center;
+            transition: top .3s;
+            border-radius: .5rem;
+            a{
+                position: relative;
+                color: $Dark-Blue;
+                transition: color .6s;
+                padding: 0.625rem;
+                &::after{
+                    content: '';
+                    display: block;
+                    height: 2px;
+                    width: 0%;
+                    background: linear-gradient(to right, $Lime-Green, $Bright-Cyan);
+                    position: absolute;
+                    left: 30%;
+                    bottom: 0;
+                    transition: width 1s;
+                }
+                &:hover::after{
+                    width: 40%;
+                }
+                &:hover{
+                    color:$Grayish-Blue;
+                }
+            }
+    
+            } 
+        @include breackpoint-up('large'){
+            position: initial;
+            width: initial;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 3rem;   
+            a{
+                position: relative;
+                font-size: $font-sm;
+                transition: color .3s;
+                display: inline-block;
+                padding:  0.975rem 1rem;
+                color: $Grayish-Blue;
+    
+                &::after{
+                    content: '';
+                    display: block;
+                    height: 2px;
+                    width: 0%;
+                    background: linear-gradient(to right, $Lime-Green, $Bright-Cyan);
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    transition: width .6s;
+                }
+                &:hover::after{
+                    width: 100%;
+                }
+                &:hover{
+                    color: $Dark-Blue;
+                }
+            }
+        }        
+    }
+        .show{ 
+            top: 100px;
+        }
+
+
+
+    &_hamburger{
+        > span{
+            display: block;
+            background-color: $Dark-Blue;
+            width: 26px;
+            height: 1.3px;
+            transition: all .3s ease-in-out;
+            transform-origin: 3px 1px;
+            &:not(:last-child){
+                margin-bottom: 6px;
+            }
+        }
+
+    }
+
+
+    &_button{
+        font-size: $font-sm;
+        transition: opacity .3s;
+    }
+    &_button:hover{
+        opacity: .75;
+    }
+
+}  

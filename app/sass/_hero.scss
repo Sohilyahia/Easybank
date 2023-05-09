@@ -1,0 +1,134 @@
+.hero{
+    position: relative;
+    background-color: $Very-Light-Gray;
+    // overflow: hidden;
+    //overflow: hidden visible;
+
+
+    // @include breackpoint-up('large'){
+    //    height: 44.9375rem;
+    // }
+
+    @include breackpoint-down('mediem'){
+        height: 44.5625rem
+    }
+
+    .container{
+        @include breackpoint-up('large'){
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 40.9375rem;
+        }
+    }
+
+
+
+    &_img{
+        position: relative;
+        background-image: url('../../images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        @include breackpoint-down('mediem'){
+            height: 25rem;
+            background-position: center center;
+        }
+        @include breackpoint-down('small'){
+            height: 17.5rem;
+        }
+        @include breackpoint-up('large'){
+            background-image: none;
+            flex: 3;
+            order: 2;
+            height: 100%;
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            background-image: url('../../images/bg-intro-desktop.svg');
+            background-size: 93%;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            @include breackpoint-up('large'){
+                content: '';
+                position: absolute;
+                left: -16px;
+                height: 100%;
+                width: 183%;
+            }
+            @include breackpoint-down('mediem'){
+                background-image: none;
+            }
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            background-image: url('../../images/image-mockups.png');
+            background-size: 93%;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            @include breackpoint-up('large'){
+                content: '';
+                position: absolute;
+                right: -42%;
+                height: 115%;
+                width: 118%;
+            }
+            @include breackpoint-down('mediem'){
+                right: 25%;
+                height: 97%;
+                width: 54%;
+            }
+            @include breackpoint-down('small'){
+                content: '';
+                position: absolute;
+                right: 0%;
+                background-image: url('../../images/image-mockups.png');
+                background-size: 93%;
+                background-position: center bottom;
+                background-repeat: no-repeat;
+                height: 100%;
+                width: 100%;
+            }
+        }
+ 
+    }
+
+
+    
+    &_text{
+        text-align: center;
+        @include breackpoint-up('large'){
+            flex: 2;
+            text-align: left;
+        }
+        @include breackpoint-down('mediem'){
+            margin-top: 2.5rem;
+        }
+        h1{
+            font-weight: 300;
+            font-size: 2.3125rem;
+            color: $Dark-Blue;
+            margin-bottom: 1.5rem;
+            @include breackpoint-up('large'){
+                font-size: $font-xl;
+            }
+        }
+        p{
+            font-size: .90rem ;
+            margin-top: 0px;
+            margin-bottom: 2.25rem;
+            @include breackpoint-up('large'){
+                font-size: $font-med;
+            }
+        }
+    }
+}
